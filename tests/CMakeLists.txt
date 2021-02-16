@@ -20,7 +20,7 @@ if (CATCH_BUILD_SURROGATES)
 
     add_custom_command(
       OUTPUT ${surrogateFilePath}
-      COMMAND cmake -E echo '\#include <${includePath}>' >${surrogateFilePath}
+      COMMAND cmake -E echo '\#include <${includePath}>' > "${surrogateFilePath}"
     )
 
     set(${pathToFile} ${surrogateFilePath} PARENT_SCOPE)
