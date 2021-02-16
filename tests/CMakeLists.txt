@@ -3,6 +3,10 @@ include(MiscFunctions)
 if (CATCH_BUILD_SURROGATES)
   message(STATUS "Configuring targets for surrogate TUs")
 
+  # If the folder does not exist before we ask for output redirect to
+  # a file, it won't work.
+  file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/surrogates)
+
   # Creates target to generate the surrogate TU for provided header.
   # Returns the path to the generated file.
   function(createSurrogateFileTarget sourceHeader pathToFile)
